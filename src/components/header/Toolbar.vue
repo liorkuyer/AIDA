@@ -14,9 +14,9 @@
     </div>
 
     <router-link to="/">
-      <v-toolbar-title class="white--text">
-        AIDA
-      </v-toolbar-title>
+      <!--v-toolbar-title class="white--text">
+        Editor
+      </v-toolbar-title-->
     </router-link>
 
     <v-spacer/>
@@ -24,30 +24,6 @@
     <app-export/>
 
     <app-save/>
-
-    <app-settings />
-
-    <!-- Link to Dashboard -->
-    <v-btn
-      icon
-      href="https://imageannotation.nds.ox.ac.uk:8443/AIDA/">
-      <v-icon>
-        apps
-      </v-icon>
-    </v-btn>
-
-    <!-- Link to Docs -->
-    <v-btn
-      icon
-      href="https://aida.gitbook.io/docs/" >
-      <v-icon small> fa-book </v-icon>
-    </v-btn>
-
-    <!-- <v-btn
-      icon
-      class="pointers-no">
-      <app-user/>
-    </v-btn> -->
 
     <div>
       <v-toolbar-side-icon @click="toggleStudioDrawer()"/>
@@ -66,8 +42,8 @@ import Export from './export/Export.vue'
 
 export default {
   components: {
-    'app-settings': Settings,
-    'app-user': User,
+    // 'app-settings': Settings,
+    // 'app-user': User,
     'app-save': Save,
     'app-export': Export
   },

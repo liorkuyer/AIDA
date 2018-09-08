@@ -91,9 +91,6 @@ export default {
     logOut () {
       this.dialog = false
       this.signOut().then(() => {
-        this.$router.push({
-          name: 'Landing'
-        })
       })
     }
   }
