@@ -45,7 +45,7 @@ const actions = {
         if (response.data.config) {
           config = readOldSchema(response.data.config)
         }
-        // commit('setCsrfToken', config.csrfToken)
+        commit('setCsrfToken', config.csrfToken)
         // Load the editor configuration
         dispatch('editor/loadConfig', config.editor, {
           root: true
@@ -77,16 +77,13 @@ const actions = {
       // let endpoint = state.projectEndpoint
       let endpoint = '/images/editor-update?id='+ state.imageId
 
-      // axios.defaults._csrf = state.csrfToken
-      console.log("STATE", state.csrfToken)
-
       axios
         .put(endpoint, {
           editor: rootState.editor,
           annotation: rootState.annotation.project,
           images: rootState.image.images
         },{
-          headers: {'_csrf': state.csrfToken},
+          headers: {'X-CSRF-Token': state.csrfToken},
         }).then(function (response) {
           console.log('Saved State.\nStatus response: ' + response.statusText)
           console.log(response)
