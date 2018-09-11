@@ -11,13 +11,13 @@
     <app-layers/>
 
     <!-- Display and control images in the instance -->
-    <app-images/>
+    <!--app-images/-->
 
     <!-- Display and control properties of the selected items -->
-    <app-properties/>
+    <!--app-properties/-->
 
     <!-- Display the validation history of the selected item -->
-    <app-validations/>
+    <!--app-validations/-->
 
   </div>
 

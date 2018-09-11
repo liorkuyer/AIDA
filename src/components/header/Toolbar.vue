@@ -14,9 +14,9 @@
     </div>
 
     <router-link to="/">
-      <!--v-toolbar-title class="white--text">
-        Editor
-      </v-toolbar-title-->
+      <v-toolbar-title class="white--text">
+         {{ (images[0] && images[0].name) ? images[0].name : '' }}
+      </v-toolbar-title>
     </router-link>
 
     <v-spacer/>
@@ -33,14 +33,25 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 
+import { mapActions, mapState, mapGetters } from 'vuex'
 import Settings from './settings/Settings.vue'
 import User from './user/User.vue'
 import Save from './save/Save.vue'
 import Export from './export/Export.vue'
 
 export default {
+
+  computed: {
+    ...mapState({
+      images: state => state.image.images
+    }),
+    ...mapGetters({
+      getChannels: 'image/getChannels'
+    })
+
+  },
+
   components: {
     // 'app-settings': Settings,
     // 'app-user': User,

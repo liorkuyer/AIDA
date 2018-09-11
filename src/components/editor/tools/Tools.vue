@@ -66,21 +66,21 @@
 
     <v-divider/>
 
-    <app-delete
+    <!--app-delete
       v-if="(getStepTools().includes('delete'))"
       :active="(activeTool === 'delete')"
       @click.native="activeTool = 'delete'"
-    />
+    /-->
 
     <v-divider/>
 
-    <app-faces
+    <!--app-faces
       v-if="(getStepTools().includes('faces'))"
       :active="(activeTool === 'faces')"
       @click.native="activeTool = 'faces'"
-    />
+    /-->
 
-    <app-megas
+    <!--app-megas
       v-if="(getStepTools().includes('megas'))"
       :active="(activeTool === 'megas')"
       @click.native="activeTool = 'megas'"
@@ -90,7 +90,7 @@
       v-if="(getStepTools().includes('filter'))"
       :active="(activeTool === 'filter')"
       @click.native="activeTool = 'filter'"
-    />
+    /-->
 
   </v-list>
 

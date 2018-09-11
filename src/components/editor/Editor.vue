@@ -1,9 +1,9 @@
 <template>
   <div id="container">
 
-    <div id="stepper-item">
+    <!--div id="stepper-item">
       <app-stepper/>
-    </div>
+    </div-->
 
     <div id="view-item">
       <app-view :type="type"/>

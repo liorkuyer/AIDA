@@ -26,10 +26,14 @@ const actions = {
     dispatch,
     commit
   }, payload) => {
-    // Construct endpoint from which to pull the data from and save to state
-    let endpoint = 'https://aida-testing.firebaseio.com/' + payload + '.json '
-    commit('setProjectEndpoint', endpoint)
+    var imageId=new URL( window.location.href).searchParams.get('_id');
+    if (!imageId)
+      return
 
+    // Construct endpoint from which to pull the data from and save to state
+    // commit('setProjectEndpoint', endpoint)
+    commit('setProjectImage', imageId)
+    let endpoint = '/images/editor?id='+ imageId
     axios
       .get(endpoint)
       // Update the editor.js state
@@ -41,7 +45,7 @@ const actions = {
         if (response.data.config) {
           config = readOldSchema(response.data.config)
         }
-
+        // commit('setCsrfToken', config.csrfToken)
         // Load the editor configuration
         dispatch('editor/loadConfig', config.editor, {
           root: true
@@ -55,7 +59,7 @@ const actions = {
         // Load the PaperJS project representation of the annotation data
         dispatch('annotation/loadAnnotation', config.annotation, {
           root: true
-        })
+        })    
       })
       .catch(function (error) {
         console.log(`Could not load all data from external source. Returned the following error: \n \n` + error)
@@ -70,13 +74,19 @@ const actions = {
     dispatch('annotation/refreshAnnotationState', '', {
       root: true
     }).then(() => {
-      let endpoint = state.projectEndpoint
+      // let endpoint = state.projectEndpoint
+      let endpoint = '/images/editor-update?id='+ state.imageId
+
+      // axios.defaults._csrf = state.csrfToken
+      console.log("STATE", state.csrfToken)
 
       axios
         .put(endpoint, {
           editor: rootState.editor,
           annotation: rootState.annotation.project,
           images: rootState.image.images
+        },{
+          headers: {'_csrf': state.csrfToken},
         }).then(function (response) {
           console.log('Saved State.\nStatus response: ' + response.statusText)
           console.log(response)
@@ -153,6 +163,12 @@ const mutations = {
 
   setProjectEndpoint: (state, projectEndpoint) => {
     state.projectEndpoint = projectEndpoint
+  },
+  setProjectImage: (state, imageId) => {
+    state.imageId = imageId
+  },
+  setCsrfToken: (state, csrfToken) => {
+    state.csrfToken = csrfToken
   }
 }
 

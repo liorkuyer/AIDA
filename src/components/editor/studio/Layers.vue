@@ -161,11 +161,13 @@ export default {
     ]),
 
     selectLayer (index) {
+    if (this.steps) {
       this.steps.map(step => {
         if (step.specificLayer === index) {
           this.setActiveStep(step)
         }
       })
+    }
 
       this.setActiveLayer(index)
 
