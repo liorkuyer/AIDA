@@ -75,7 +75,7 @@ const actions = {
       root: true
     }).then(() => {
       // let endpoint = state.projectEndpoint
-      let endpoint = '/images/editor-update?id='+ state.imageId
+      let endpoint = '/images/editor?id='+ state.imageId
 
       axios
         .put(endpoint, {
