@@ -49,6 +49,9 @@
               </v-tab>
 
               <v-tab>
+                <v-icon>opacity</v-icon>
+              </v-tab>
+              <v-tab>
                 <v-icon> text_format </v-icon>
               </v-tab>
 
@@ -80,6 +83,33 @@
                           mask="###"
                           @change="setChannelOpacity"
                           @keyup.native.enter="setChannelOpacity"/>
+                      </v-flex>
+                    </v-layout>
+                  </div>
+                </v-tab-item>
+
+                <!-- Contrast Slider -->
+                <v-tab-item>
+                  <div id="tab-item">
+                    <v-layout
+                            row
+                            wrap>
+                      <v-flex xs9>
+                        <v-slider
+                          v-model="channel.contrast"
+                          step="0"
+                          max="1"
+                          @input="setChannelContrast"
+                        />
+                      </v-flex>
+                      <v-flex xs3>
+                        <v-text-field
+                          :value="(channel.contrast !== null) ? Math.round(channel.contrast*100) : 100"
+                          suffix="%"
+                          single-line
+                          mask="###"
+                          @change="setChannelContrast"
+                          @keyup.native.enter="setChannelContrast"/>
                       </v-flex>
                     </v-layout>
                   </div>
@@ -141,6 +171,7 @@ export default {
   methods: {
     ...mapActions({
       setChannelOpacity: 'image/setChannelOpacity',
+      setChannelContrast: 'image/setChannelContrast',
       setActiveChannel: 'image/setActiveChannel',
       setChannelName: 'image/setChannelName',
       deleteChannel: 'image/deleteChannel'

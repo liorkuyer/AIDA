@@ -202,9 +202,9 @@ export default {
   },
 
   setActiveLayer: (state, index) => {
-    paper.project.layers[index].activate()
+    if ( !paper.project.isEmpty() )
+      paper.project.layers[index].activate()
   },
-
   // Set the opacity of the active layer
   setLayerOpacity: (state, payload) => {
     let newOpacity

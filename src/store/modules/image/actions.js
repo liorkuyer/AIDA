@@ -61,6 +61,17 @@ export default {
     })
   },
 
+  setChannelContrast: ({
+    commit,
+    rootState
+  }, payload) => {
+    commit('setChannelContrast', {
+      input: payload,
+      activeChannel: rootState.editor.activeChannel,
+      rootState: rootState
+      })
+  },
+
   setChannelName: ({
     commit,
     rootState

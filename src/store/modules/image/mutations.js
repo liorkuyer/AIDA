@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import openseadragon from 'openseadragon'
+import OSDFiltering from 'lib/openseadragon-filtering'
 
 export default {
   resetImageState: (state) => {
@@ -11,7 +12,7 @@ export default {
       OSDviewer: null,
       OSDworld: null,
       images: [],
-      activeChannel: 0,
+      activeChannel: 0,      
       view: {
         viewSize: [null, null],
         imageSize: [null, null],
@@ -131,6 +132,32 @@ export default {
 
     // Set the new opacity level
     state.OSDviewer.world.getItemAt(state.activeChannel).setOpacity(newOpacity)
+  },
+
+  // Set channel visibility
+  setChannelContrast: (state, payload) => {
+    let input = payload.input
+    let newContrast = 1 // Default
+    if (typeof input === 'string' || typeof input === 'number') {
+      input = Number(input)
+      if (input > 1) {
+        newContrast = input / 100
+      } else {
+        newContrast = input
+      }
+    } else if (input instanceof KeyboardEvent) {
+      newContrast = input.target.value / 100
+    }
+
+    Vue.set(state.images[state.activeChannel], 'contrast', newContrast)
+    state.OSDviewer.setFilterOptions({
+      filters: [{
+        items: state.OSDviewer.world.getItemAt(state.activeChannel),
+        processors: [
+          openseadragon.Filters.CONTRAST(newContrast)
+        ]
+      }]
+    })
   },
 
   // Set the channel name

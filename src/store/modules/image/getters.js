@@ -38,10 +38,12 @@ export default {
       let numChannels = state.OSDviewer.world.getItemCount()
 
       for (let i = 0; i < numChannels; i++) {
+        let itm = state.OSDviewer.world.getItemAt(i)
         channels.push({
           channel: state.OSDviewer.world.getItemAt(i),
           id: i,
           opacity: state.OSDviewer.world.getItemAt(i).getOpacity(),
+          contrast: state.images[i].contrast ?  state.images[i].contrast : 100,
           name: state.images[i].name,
           visible: state.OSDviewer.world.getItemAt(i).getOpacity() > 0,
           opacityCache: 0
