@@ -164,8 +164,8 @@ export default {
       }
     })
 
-    // Active the correct layer as specified by editor state.
-    paper.project.layers[payload.activeLayer].activate()
+    if (paper.project.layers.length)
+      paper.project.layers[payload.activeLayer].activate()
   },
 
   // Load legacy, paperJS project string representation

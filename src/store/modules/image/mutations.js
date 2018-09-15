@@ -156,7 +156,8 @@ export default {
         processors: [
           openseadragon.Filters.CONTRAST(newContrast)
         ]
-      }]
+      }],
+      loadMode: 'sync'
     })
   },
 
