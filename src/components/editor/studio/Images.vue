@@ -98,7 +98,7 @@
                         <v-slider
                           v-model="channel.contrast"
                           step="0"
-                          max="1"
+                          max="2"
                           @input="setChannelContrast"
                         />
                       </v-flex>

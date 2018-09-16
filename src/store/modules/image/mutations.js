@@ -140,7 +140,7 @@ export default {
     let newContrast = 1 // Default
     if (typeof input === 'string' || typeof input === 'number') {
       input = Number(input)
-      if (input > 1) {
+      if (input > 2) {
         newContrast = input / 100
       } else {
         newContrast = input
