@@ -1,7 +1,7 @@
 export default {
   getMaxZoom: state => {
     if (state.OSDviewer) {
-      return Math.round(state.OSDviewer.viewport.getMaxZoom())
+      return Math.round(state.OSDviewer.viewport.getMaxZoom() * 2.0)
     } else {
       return 10
     }
