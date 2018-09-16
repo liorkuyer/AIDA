@@ -33,7 +33,7 @@ const actions = {
     // Construct endpoint from which to pull the data from and save to state
     // commit('setProjectEndpoint', endpoint)
     commit('setProjectImage', imageId)
-    let endpoint = '/images/editor?id='+ imageId
+    let endpoint = '/images/editor-settings?id='+ imageId
     axios
       .get(endpoint)
       // Update the editor.js state
@@ -75,7 +75,7 @@ const actions = {
       root: true
     }).then(() => {
       // let endpoint = state.projectEndpoint
-      let endpoint = '/images/editor?id='+ state.imageId
+      let endpoint = '/images/editor-settings?id='+ state.imageId
 
       axios
         .put(endpoint, {

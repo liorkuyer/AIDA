@@ -13,10 +13,5 @@ module.exports = {
   },
   parserOptions: {
     parser: 'babel-eslint'
-  },
-  overrides: [
-    {
-      "excludedFiles": "lib/*.js",
-    }
-  ]
+  }
 }
