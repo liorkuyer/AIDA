@@ -31,7 +31,7 @@ Vue.config.productionTip = false
 // Event bus to handle child-child communication
 export const eventBus = new Vue()
 
-new Vue({
+window.Aida = new Vue({
   router,
   store,
   render: h => h(App)
