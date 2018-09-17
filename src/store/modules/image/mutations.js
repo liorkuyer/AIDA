@@ -12,7 +12,7 @@ export default {
       OSDviewer: null,
       OSDworld: null,
       images: [],
-      activeChannel: 0,      
+      activeChannel: 0,
       view: {
         viewSize: [null, null],
         imageSize: [null, null],
@@ -29,7 +29,9 @@ export default {
       id: payload,
       showNavigationControl: false,
       showNavigator: true,
-      navigatorId: 'navigator'
+      navigatorId: 'navigator',
+      crossOriginPolicy: 'Anonymous',
+      ajaxWithCredentials: false,
     })
 
     // Add handlers to update the state when certain events are triggered on the
@@ -79,13 +81,17 @@ export default {
     if (image.type === 'dzi') {
       state.OSDviewer.addTiledImage({
         tileSource: image.source,
+        ajaxWithCredentials: false,
         x: 0,
         y: 0,
-        opacity: 1.0
+        opacity: 1.0,
+        crossOriginPolicy: 'Anonymous'
       })
     } else if (image.type === 'simple') {
       state.OSDviewer.addSimpleImage({
         url: image.source,
+        crossOriginPolicy: 'Anonymous',
+        ajaxWithCredentials: false,
         x: 0,
         y: 0,
         opacity: 1.0
