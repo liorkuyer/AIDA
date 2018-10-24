@@ -12,7 +12,7 @@ module.exports = {
     output: {
       publicPath: "/",
       filename: "js/[name].js",
-      chunkFilename:"js/[name].js"
+      chunkFilename:"js/[name].js"  
     }
   },
 
@@ -32,20 +32,30 @@ module.exports = {
   devServer: {
     proxy: {
       '/studies/editor': {
-        target: 'http://localhost/',
+        target: 'http://192.168.86.57/',
         ws: true,
         changeOrigin: true
       },      
       '/images/': {
-        target: 'http://localhost/',
+        target: 'http://192.168.86.57/',
         ws: true,
         changeOrigin: true
       },
-        '/assets/public/studies/': {
-            target: 'http://localhost/',
+      'images/editor-settings': {
+        target: 'http://192.168.86.57/',
+        ws: true,
+        changeOrigin: true
+      },
+      '/assets/public/studies/': {
+            target: 'http://192.168.86.57/',
             ws: true,
             changeOrigin: true
-        },
+      },
+      '/assets/public/studies/': {
+          target: 'http://192.168.86.57/',
+          ws: true,
+          changeOrigin: true
+      },
     }
   }
 }

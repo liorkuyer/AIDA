@@ -21,6 +21,8 @@ export default {
         Vue.set(state.project.layers, [layer.index], {
           name: state.project.layers[layer.index] ? state.project.layers[layer.index].name : layer.name,
           opacity: layer.opacity,
+          _class: state.project.layers[layer.index] ? state.project.layers[layer.index]._class : null,
+          _type: state.project.layers[layer.index] ? state.project.layers[layer.index]._type : null,
           items: []
         })
       }
