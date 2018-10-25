@@ -110,7 +110,7 @@
                       dark
                       flat
                       outline
-                      @click="deleteActiveLayer().then(() => {setActiveLayer(0)})">
+                      @click="deleteActiveLayer().then(() => {handleDelete()})">
                       Delete
                     </v-btn>
                   </div>
@@ -157,8 +157,13 @@ export default {
     ]),
 
     ...mapActions('common', [
-      'saveProject'
+      'saveProject',
     ]),
+
+    handleDelete(){
+      this.setActiveLayer(0) 
+      this.saveProject({notification:true})
+    },
 
     selectLayer (index) {
     if (this.steps) {
@@ -172,9 +177,9 @@ export default {
       this.setActiveLayer(index)
 
       // Triger an auto-save
-      this.saveProject({
-        notification: false
-      })
+      // this.saveProject({
+      //   notification: false
+      // })
     }
   }
 }
