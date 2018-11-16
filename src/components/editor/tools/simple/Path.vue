@@ -142,6 +142,8 @@ export default {
         segments: true,
         tolerance: this.strokeWidth * 5
       }
+
+      document.getElementById('osd-canvas').style.cursor = 'crosshair'
     },
 
     newPath () {

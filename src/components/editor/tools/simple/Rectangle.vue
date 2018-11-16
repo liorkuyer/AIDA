@@ -100,6 +100,7 @@ export default {
 
       // Set the default strokewidth relative to image size and zoom.
       this.strokeWidth = this.imageWidth / (this.viewportZoom * 100)
+      document.getElementById('osd-canvas').style.cursor = 'crosshair'
     }
   }
 }

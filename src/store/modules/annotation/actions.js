@@ -82,6 +82,12 @@ export default {
     commit('setLayerOpacity', payload)
   },
 
+  toggleLayer: ({
+    commit
+  }, payload) => {
+    commit('toggleLayer', payload)
+  },
+
   setLayerName: ({
     commit
   }, payload) => {

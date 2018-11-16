@@ -83,6 +83,7 @@ export default {
 
   // Load annotation data into both the state and the paperJS environment.
   loadAidaAnnotation: (state, payload) => {
+
     // Save the loaded annotation data to the Vuex state
     state.project = payload.annotation
 
@@ -207,6 +208,11 @@ export default {
     if ( !paper.project.isEmpty() )
       paper.project.layers[index].activate()
   },
+
+  toggleLayer: (state, index, bla) => {
+    paper.project.activeLayer.opacity = (paper.project.activeLayer.opacity==0) ? 100 : 0
+  },
+
   // Set the opacity of the active layer
   setLayerOpacity: (state, payload) => {
     let newOpacity

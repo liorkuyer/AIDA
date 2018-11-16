@@ -51,11 +51,7 @@ export default {
   methods: {
     initialiseTool () {
       // Relinquish control of PaperJS interface
-      document
-        .getElementById('annotation-canvas')
-        .setAttribute('class', 'pointers-no')
-
-      document.getElementById('osd-canvas').style.cursor = 'grab'
+      document.getElementById('annotation-canvas').style.cursor = 'crosshair'
     }
 
   }

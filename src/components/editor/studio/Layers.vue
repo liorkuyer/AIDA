@@ -48,7 +48,8 @@
               color="transparent"
             >
               <v-tab>
-                <v-icon> visibility </v-icon>
+                <v-icon
+                 v-on:click="toggleLayer(index)" > visibility </v-icon>
               </v-tab>
 
               <v-tab>
@@ -149,7 +150,8 @@ export default {
       'setActiveLayer',
       'setLayerOpacity',
       'setLayerName',
-      'deleteActiveLayer'
+      'deleteActiveLayer',
+      'toggleLayer'
     ]),
 
     ...mapActions('editor', [
@@ -166,6 +168,8 @@ export default {
     },
 
     selectLayer (index) {
+
+      console.log("SELECT YALER");
     if (this.steps) {
       this.steps.map(step => {
         if (step.specificLayer === index) {

@@ -139,6 +139,7 @@ export default {
       // Set the default radius relative to image size and zoom level.
       this.radius = this.imageWidth / (this.viewportZoom * 100)
       this.strokeWidth = this.imageWidth / (this.viewportZoom * 500)
+      document.getElementById('annotation-canvas').style.cursor = 'crosshair'
     },
 
     // Helper function - calculate distance between 2 points:

@@ -135,6 +135,7 @@ export default {
       // The distance the mouse has to be dragged before an event is fired
       // is dependent on the current zoom level
       this.toolPencil.minDistance = this.strokeWidth * 5
+      document.getElementById('annotation-canvas').style.cursor = 'crosshair'
     },
 
     newPath () {
