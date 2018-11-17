@@ -26,7 +26,7 @@ const actions = {
     dispatch,
     commit
   }, payload) => {
-    var imageId=new URL( window.location.href).searchParams.get('_id');
+    let imageId=new URL( window.location.href).searchParams.get('_id');
     if (!imageId)
       return
 
@@ -74,7 +74,6 @@ const actions = {
     dispatch('annotation/refreshAnnotationState', '', {
       root: true
     }).then(() => {
-      // let endpoint = state.projectEndpoint
       let endpoint = '/images/editor-settings?id='+ state.imageId
 
       axios
@@ -85,8 +84,6 @@ const actions = {
         },{
           headers: {'X-CSRF-Token': state.csrfToken},
         }).then(function (response) {
-          console.log('Saved State.\nStatus response: ' + response.statusText)
-          console.log(response)
 
           if (payload.notification) {
             dispatch('app/activateSnackbar', {

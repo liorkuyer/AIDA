@@ -35,8 +35,6 @@
 <script>
 
 import { mapActions, mapState, mapGetters } from 'vuex'
-import Settings from './settings/Settings.vue'
-import User from './user/User.vue'
 import Save from './save/Save.vue'
 import Export from './export/Export.vue'
 
@@ -53,8 +51,6 @@ export default {
   },
 
   components: {
-    // 'app-settings': Settings,
-    // 'app-user': User,
     'app-save': Save,
     'app-export': Export
   },

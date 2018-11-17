@@ -204,13 +204,23 @@ export default {
     })
   },
 
+  undoLayer: (state) => {
+    paper.project.activeLayer.lastChild.remove()
+  },
+
   setActiveLayer: (state, index) => {
     if ( !paper.project.isEmpty() )
       paper.project.layers[index].activate()
   },
 
   toggleLayer: (state, index, bla) => {
-    paper.project.activeLayer.opacity = (paper.project.activeLayer.opacity==0) ? 100 : 0
+    let newOpacity = (paper.project.activeLayer.opacity==0) ? 100 : 0
+    paper.project.activeLayer.opacity = newOpacity
+    Vue.set(
+      state.project.layers[paper.project.activeLayer.index],
+      'opacity',
+      newOpacity
+    )
   },
 
   // Set the opacity of the active layer

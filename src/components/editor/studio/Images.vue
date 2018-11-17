@@ -71,7 +71,7 @@
                         <v-slider
                           v-model="channel.opacity"
                           step="0"
-                          max="1"
+                          max="2"
                           @input="setChannelOpacity"
                         />
                       </v-flex>

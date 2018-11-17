@@ -66,32 +66,13 @@
 
     <v-divider/>
 
-    <!--app-delete
+    <app-delete
       v-if="(getStepTools().includes('delete'))"
       :active="(activeTool === 'delete')"
       @click.native="activeTool = 'delete'"
-    /-->
-
-    <v-divider/>
-
-    <!--app-faces
-      v-if="(getStepTools().includes('faces'))"
-      :active="(activeTool === 'faces')"
-      @click.native="activeTool = 'faces'"
-    /-->
-
-    <!--app-megas
-      v-if="(getStepTools().includes('megas'))"
-      :active="(activeTool === 'megas')"
-      @click.native="activeTool = 'megas'"
     />
 
-    <app-filter
-      v-if="(getStepTools().includes('filter'))"
-      :active="(activeTool === 'filter')"
-      @click.native="activeTool = 'filter'"
-    /-->
-
+    <v-divider/>
   </v-list>
 
 </template>
@@ -112,13 +93,6 @@ import toolDelete from './simple/Delete.vue'
 import toolPaint from './simple/Paint.vue'
 import toolGrid from './simple/Grid.vue'
 
-// Assisted Tools:
-import toolFilter from './assisted/Filter.vue'
-
-// Intelligent Tools:
-import toolFaces from './intelligent/Faces.vue'
-import toolMegas from './intelligent/Megakaryocytes'
-
 export default {
   components: {
     'app-circle': toolCircle,
@@ -130,11 +104,8 @@ export default {
     'app-pencil': toolPencil,
     'app-count': toolCount,
     'app-delete': toolDelete,
-    'app-faces': toolFaces,
-    'app-megas': toolMegas,
     'app-paint': toolPaint,
     'app-grid': toolGrid,
-    'app-filter': toolFilter
   },
 
   data () {
