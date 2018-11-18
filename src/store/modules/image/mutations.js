@@ -103,6 +103,30 @@ export default {
     state.activeChannel = payload
   },
 
+  toggleInvert: (state, payload) => {
+    
+    if (!state.inverted) {
+      state.OSDviewer.setFilterOptions({
+        filters: [{
+          items: state.OSDviewer.world.getItemAt(state.activeChannel),
+          processors: [
+            openseadragon.Filters.INVERT()
+          ]
+        }],
+        loadMode: 'sync'
+      })
+    } else {
+      // trick to reset the filters
+      state.OSDviewer.setFilterOptions({
+        filters: [{
+          items: state.OSDviewer.world.getItemAt(state.activeChannel),
+          processors: [
+          ]
+        }],
+      })
+    }
+    state.inverted = !state.inverted
+  },
   // Toggle the visibility of a channel.
   // TODO: build in some kind of cache of opacity so that when it is toggled
   // from not-visible to visible it can easily return to the state it was.

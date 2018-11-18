@@ -83,5 +83,11 @@ export default {
     commit
   }, payload) => {
     commit('setZoom', payload)
+  },
+  toggleInvert: ({
+    commit
+  }, payload) => {
+    commit('toggleInvert', payload)
   }
+
 }

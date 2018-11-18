@@ -52,12 +52,12 @@
                 <v-icon>opacity</v-icon>
               </v-tab>
               <v-tab>
-                <v-icon> text_format </v-icon>
+                <v-icon v-on:click="toggleInvert">invert_colors</v-icon>
               </v-tab>
 
-              <v-tab>
+              <!--v-tab>
                 <v-icon> delete </v-icon>
-              </v-tab>
+              </v-tab-->
 
               <v-tabs-items id="tab-items">
 
@@ -115,20 +115,23 @@
                   </div>
                 </v-tab-item>
 
-                <!-- Rename List Item -->
+                <!-- Invert image -->
                 <v-tab-item>
-                  <div id="tab-item">
+                  <!--div id="tab-item">
+
                     <v-text-field
-                      :value="channel.name ? channel.name : ('Channel ' + index)"
+                      :value="0"
                       single-line
-                      @change="setChannelName"
-                      @keyup.native.enter="setChannelName"
+                      @change="toggleInvert"
+                      v-on:click="toggleLayer(index)"
+                      @click="toggleInvert"
+                      @keyup.native.enter="toggleInvert"
                     />
-                  </div>
+                  </div-->
                 </v-tab-item>
 
                 <!-- Delete List item -->
-                <v-tab-item>
+                <!--v-tab-item>
                   <div id="tab-item">
                     <v-btn
                       id="deleteButton"
@@ -141,7 +144,7 @@
                       Delete
                     </v-btn>
                   </div>
-                </v-tab-item>
+                </v-tab-item-->
 
               </v-tabs-items>
             </v-tabs>
@@ -174,7 +177,8 @@ export default {
       setChannelContrast: 'image/setChannelContrast',
       setActiveChannel: 'image/setActiveChannel',
       setChannelName: 'image/setChannelName',
-      deleteChannel: 'image/deleteChannel'
+      deleteChannel: 'image/deleteChannel',
+      toggleInvert: "image/toggleInvert"
     })
   }
 }
